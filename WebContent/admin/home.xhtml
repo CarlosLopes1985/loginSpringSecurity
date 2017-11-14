@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	>
+
+<h:head>
+</h:head>
+<h:body>
+  <p:panel  header="Area do Administrador">
+ 
+   <form method="post" action="../j_spring_security_logout">
+     <h:commandButton value="Sair"></h:commandButton>
+   </form>
+   <br/><br/>
+   <h:outputText value="Bem Vindo Adminstrador do Sistema: #{mb.logado.login}" />
+   
+   
+   <br/> <p:separator/><br/>
+   <p:dataTable value="#{mb.lista}" var="linha" emptyMessage="Nenhum Produto">
+   		<f:facet name="header">
+   			<p:outputLabel value="Produtos Cadastrados"/>
+   		</f:facet>
+   		<p:column headerText="IdProduto">
+   			<p:outputLabel value="#{linha.idProduto}"/>
+   		</p:column>
+   		<p:column headerText="Produto">
+   			<p:outputLabel value="#{linha.produto}"/>
+   		</p:column>
+   		<p:column headerText="Preço">
+   			<p:outputLabel value="#{linha.preco}">
+   				<f:convertNumber type="currency"/>
+   			</p:outputLabel>
+   		</p:column>
+   		<p:column headerText="Quantidade">
+   			<p:outputLabel value="#{linha.quantidade}"/>
+   		</p:column>
+   		
+   		
+   	
+   </p:dataTable>
+   
+   
+  </p:panel>
+</h:body>
+
+
+
+</html>
